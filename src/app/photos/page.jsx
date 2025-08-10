@@ -51,6 +51,7 @@ export default function PhotosPage() {
 
       <p className="text-center text-sm mt-12 text-rose-400 font-medium">
         Made with love 💕 just for you.(I love u)<br />
+        If I ever said or did anything that hurt you, I’m truly sorry. <br />
         Gali chai ngara lw. photo download gareko ma<br />
         Darlagxa😂.<br />
       
