@@ -1,9 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function PhotosPage() {
   const [playMusic, setPlayMusic] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const handlePlay = () => {
+    setPlayMusic(true);
+    if (audioRef.current) {
+      audioRef.current.play().catch((err) => {
+        console.log("Playback failed:", err);
+      });
+    }
+  };
 
   const photos = [
     "/binika6.jpg",
@@ -19,12 +29,11 @@ export default function PhotosPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-100 to-purple-100 p-8">
-      
       {/* Show play button if music not started */}
       {!playMusic && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
           <button
-            onClick={() => setPlayMusic(true)}
+            onClick={handlePlay}
             className="px-6 py-3 text-lg font-bold text-white bg-rose-500 rounded-2xl shadow-lg hover:bg-rose-600 transition"
           >
             ▶ Play Music 🎶
@@ -32,11 +41,10 @@ export default function PhotosPage() {
         </div>
       )}
 
-      {playMusic && (
-        <audio autoPlay loop>
-          <source src="/Perfect.mp3" type="audio/mpeg" />
-        </audio>
-      )}
+      {/* Hidden audio element */}
+      <audio ref={audioRef} loop>
+        <source src="/Perfect.mp3" type="audio/mpeg" />
+      </audio>
 
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
