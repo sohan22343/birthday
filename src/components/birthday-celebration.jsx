@@ -125,8 +125,6 @@ export default function BirthdayCelebration() {
         <div className="text-center">
           <p className="text-lg text-purple-700 mb-4">
             Your eyes carry warmth, wonder, and a spark I can't explain.<br />
-            They don’t just light up the room —<br />
-            They light up me.<br />
             <br />
             So today, I don’t just wish you a happy birthday…<br />
             I thank the universe for creating the eyes I fell in love with,<br />
